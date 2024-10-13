@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation - Praktikum 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        label {
+            font-size: 16px;
+            display: block; /* Makes the label take up the full width */
+            margin-bottom: 10px; /* Adds space below the label */
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px); /* Adjust for padding and border */
+            padding: 10px;
+            margin-bottom: 20px; /* Adds space below the input */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var username = document.forms["myForm"]["username"].value;
+            if (username.length < 5) {
+                alert("Username harus terdiri dari minimal 5 karakter");
+                return false;
+            }
+            if (username === "") {
+                alert("Username masih kosong");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Praktikum 4</h2>
+        <p>#2. Warning Validasi Batasan Input</p>
+        <p>-----</p>
+        <p>Diah Ayu</p>
+
+        <form name="myForm" onsubmit="return validateForm()" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Masukkan Username Mu">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
